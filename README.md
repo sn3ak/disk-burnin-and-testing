@@ -62,6 +62,7 @@ Requires the smartmontools, available at https://www.smartmontools.org
                                                                            
 Uses: `grep`, `pcregrep`, `awk`, `sed`, `tr`, `sleep`, `badblocks`
 
+FreeBSD pkgs: bash, e2fsprogs, and pcre 
 Tested with the static analysis tool at https://www.shellcheck.net to insure that the code is POSIX-compliant and free of issues.
 
 Written by Keith Nash, March 2017. Modified by Yifan Liao and dak180.
