@@ -229,6 +229,10 @@ if [ -z "$Disk_Model" ]; then
   Disk_Model="$(echo "${SMART_info}" | grep "Model Family" | awk '{print $3, $4, $5}' | sed -e 's:^[ \t]*::' -e 's:[ \t]*$::' | sed -e 's: :_:')"
 fi
 
+if [ -z "$Disk_Model" ]; then
+  Disk_Model="$(echo "${SMART_info}" | grep "Product" | awk '{print $2}' | sed -e 's:^[ \t]*::' -e 's:[ \t]*$::' | sed -e 's: :_:')"
+fi
+
 # Obtain the disk serial number:
 
 Serial_Number="$(echo "${SMART_info}"  | grep "Serial Number" | awk '{print $3}' | sed -e 's: :_:')"
