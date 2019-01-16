@@ -233,6 +233,10 @@ fi
 
 Serial_Number="$(echo "${SMART_info}"  | grep "Serial Number" | awk '{print $3}' | sed -e 's: :_:')"
 
+if [ -z "$Serial_Number" ]; then
+  Serial_Number="$(echo "${SMART_info}"  | grep "Serial number" | awk '{print $3}' | sed -e 's: :_:')"
+fi
+
 # Test to see if disk is a SSD:
 
 if echo "${SMART_info}" | grep "Rotation Rate:" | grep -q "Solid State Device"; then
